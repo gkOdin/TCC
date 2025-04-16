@@ -1,0 +1,23 @@
+<head>
+    <title>Login</title>
+    </head>
+    <body class="form_centro Fundo_degra">
+
+      <div class="conatainer">
+        <%- include('menu'); %>
+        <%- include('style'); %>
+      <form method="post" class="form_estilo" style = " box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <h2>Acesse Sua Conta!</h2>
+        
+        <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+
+        <input type="email" name="email" placeholder="Email" class="campos_form" required>
+        <input type="password" name="senha" placeholder="Senha" class="campos_form" required>
+        <input type="submit" value="Login" class="btn_cor campo_enviar"> <br><br>
+        <a href="/cadastro">Não tem uma conta? Crie agora aqui!</a>
+      </form>
+    </div>
+    
+    </body>

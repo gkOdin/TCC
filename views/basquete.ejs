@@ -1,0 +1,120 @@
+<head>
+    <title>Basquetebol</title>
+    <style>
+    
+    .bola {
+        list-style-type: disc; /* Define o tipo de marcador como bolinha */
+        padding-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    </style>
+    </head>
+
+<body class="Fundo_degra">
+    <%- include('menu'); %>
+    <%- include('style'); %>
+
+
+
+ <!-- Contêiner flexível -->
+ <div class="quadradoTexto d-flex flex-column align-items-center" style="min-height: calc(100vh - 100px);">
+    <h1 class="tituloEsporte">Basquetebol</h1> <!-- Título fora do quadrado -->
+
+
+    <!-- Contêiner para o texto -->
+    <div class="containerEsporteTexto d-flex flex-column align-items-center mt-4">
+
+    <div class="forumLink">
+        <a href="/forum?esporte=<%= esporte %>" class="btn botaoTextoForum d-flex align-items-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-text chatIcon" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+              </svg>
+           Com Dúvidas? Faça uma pergunta no fórum!
+        </a>
+    </div>
+    <h2 class="subtitulosEsportes text-center" style="color:  #FF9B1E; font-weight: bold;">História do
+        Basquetebol</h2>
+        <p>O basquete é um dos esportes mais populares e praticados em todo o mundo, com uma história que remonta ao final do século XIX. Criado em 1891 pelo professor canadense James Naismith, o esporte surgiu como uma solução para manter os alunos ativos durante o rigoroso inverno em Springfield, Massachusetts.</p>        
+
+
+<h4>Criação do Basquete</h4>
+    <p>Naismith foi designado para desenvolver uma atividade que pudesse ser realizada em ambientes fechados, evitando a violência de outros esportes da época, como o futebol americano. Ele pendurou duas cestas de pêssego em uma altura de 3,05 metros — a mesma altura das cestas atuais — e elaborou 13 regras básicas para o jogo. O primeiro jogo oficial ocorreu em 20 de janeiro de 1892, com uma plateia de cerca de 200 pessoas. A partida terminou com um placar de 1 a 0, já que cada cesta valia apenas um ponto.</p>
+
+        <h4>Evolução e Popularização</h4>
+
+        <p>Após a sua criação, o basquete rapidamente ganhou popularidade nas escolas e universidades dos Estados Unidos. Em 1893, o primeiro jogo feminino foi realizado no Smith College, liderado pela professora Senda Berenson. O esporte continuou a se expandir e, em 1936, foi incluído nos Jogos Olímpicos de Berlim, marcando sua oficialização no cenário esportivo internacional.</p>
+
+        <h4>Desenvolvimento das Regras</h4>
+
+        <p>Desde sua invenção, as regras do basquete passaram por várias mudanças. Inicialmente jogado com cestas fechadas, logo se percebeu a necessidade de um design que permitisse a rápida recuperação da bola após cada ponto. As tabelas foram introduzidas em 1906 para facilitar os rebotes e evitar interferências do público. Em 1954, a regra dos 24 segundos foi implementada para aumentar a velocidade do jogo.</p>
+
+        <h2 style="color:  #FF9B1E; font-weight: bold;">Regras</h2>
+        <p>O voleibol é um esporte coletivo dinâmico que envolve duas equipes, cada uma composta por seis jogadores. As regras do voleibol são definidas pela Federação Internacional de Voleibol (FIVB) e visam garantir a fluidez e a justiça do jogo. A seguir, estão as principais regras do voleibol, organizadas em seções detalhadas.</p>
+        
+        <h4>Duração da Partida</h4>
+
+        <ul>
+            <li style="font-weight: bold;">Quartos: </li> O jogo é dividido em quatro quartos de 10 minutos cada (12 minutos na NBA).
+            <li style="font-weight: bold;">Intervalos: </li> Há intervalos de 2 minutos entre os primeiros e os terceiros quartos e um intervalo maior de 15 minutos entre o segundo e o terceiro quartos.
+            <li style="font-weight: bold;">Prorrogações:</li>  Se o jogo terminar empatado, prorrogações de 5 minutos são jogadas até que uma equipe vença.
+        </ul>
+        
+        <h4></h4>
+
+
+        <h4>Equipes</h4>
+
+        <p>Cada equipe é composta por cinco jogadores em quadra.
+            As equipes podem ter até 12 jogadores no total, incluindo reservas.
+            Não há limite para substituições, que podem ser feitas durante os intervalos ou paradas no jogo.</p>
+        
+                
+        <h4>Objetivo do Jogo</h4>
+
+        <p>O objetivo principal do basquetebol é marcar pontos arremessando a bola na cesta adversária. As cestas são contabilizadas da seguinte forma: uma cesta de 2 pontos é marcada quando a bola é arremessada de dentro da linha de três pontos; uma cesta de 3 pontos é marcada quando a bola é arremessada de fora dessa linha; e um lance livre, que vale 1 ponto, é concedido após faltas cometidas durante arremessos.</p>
+        
+
+        <h4>Campo de Jogo</h4>
+
+        <p>O campo de basquetebol possui dimensões de 28 metros de comprimento por 15 metros de largura. O aro está localizado a uma altura de 3,05 metros e a cesta tem um diâmetro interno de 45 cm. A linha de três pontos está situada a 6,75 metros do aro (7,24 metros na NBA). A área restrita (garrafão) tem uma largura de 4,60 metros e se estende a partir da linha de fundo até a linha da livre, que está a 5,80 metros do aro. Um jogador não pode permanecer na área restrita por mais de três segundos enquanto sua equipe está no ataque.</p>
+
+        <h4>A bola</h4>
+
+        <p>A bola utilizada no basquetebol deve ser esférica e feita de couro ou material sintético. As especificações variam conforme a categoria: para o masculino, a circunferência deve estar entre 74,9 cm e 78 cm e o peso entre 567 g e 650 g; para o feminino, a circunferência deve estar entre 72,4 cm e 73 cm e o peso entre 510 g e 567 g.</p>
+
+        <h4>Movimentação da Bola</h4>
+
+        <p>Os jogadores devem driblar a bola enquanto se movem; não podem dar mais de dois passos sem driblar. Se um jogador parar de driblar, deve passar ou arremessar a bola. A equipe com a posse da bola tem até 24 segundos para tentar um arremesso ao gol (regra dos 24 segundos). Após conquistar a posse no campo defensivo, a equipe tem até 8 segundos para levar a bola para o campo ofensivo (regra dos 8 segundos).</p>
+
+        <h4>Faltas e Infrações</h4>
+
+        <ul>
+            <li style="font-weight: bold;">Faltas Pessoais: </li> O contato físico excessivo ou ilegal resulta em faltas pessoais. Um jogador que comete cinco faltas pessoais (ou seis na NBA) é desqualificado da partida.
+            <li style="font-weight: bold;">Faltas Técnicas: </li> Comportamentos antidesportivos, como protestar contra decisões do árbitro ou comportamento inadequado, resultam em faltas técnicas. O time adversário recebe um lance livre.
+            <li style="font-weight: bold;">Faltas Ofensivas: </li>  Um jogador não pode empurrar ou segurar um defensor ao tentar fazer uma cesta. Isso resulta em uma falta ofensiva e a posse da bola é concedida ao time adversário.
+        </ul>
+
+        <h4>Regras Específicas</h4>
+
+        <p>Um jogador não pode permanecer na área restrita do adversário por mais de três segundos enquanto sua equipe está no ataque (regra dos 3 segundos). Também não pode manter a posse da bola por mais de cinco segundos quando marcado por um defensor (regra dos 5 segundos). Após uma cesta, o jogo é reiniciado pelo time que sofreu o ponto com um arremesso do fundo da quadra.</p>
+
+        <h4>Árbitros e Supervisão</h4>
+
+        <p>Três árbitros supervisionam cada partida e são responsáveis por aplicar as regras, controlar o tempo e tomar decisões sobre faltas e infrações. Eles têm autoridade para desqualificar jogadores e interromper o jogo quando necessário.</p>
+
+        <p>As regras do basquetebol são fundamentais para a estrutura e a dinâmica do jogo, assegurando que ele seja jogado de maneira justa e competitiva.</p>
+       
+        <br> <br><br>
+        <h2  style="color:  #FF9B1E; font-weight: bold;">Referências</h2>
+        <ul class="bola">
+        <li>Confederação Brasileira de Basketball. Regras Oficiais de Basketball 2022.
+            2022. Disponível em: <https://www.cbb.com.br/wp-content/uploads/Regras-Oficiais-
+            Basketball-2022-ALTERACOES-OUTUBRO-2022-Final.pdf>. Acesso em: 2024-10-
+            16.</li>
+        <li>BRASIL ESCOLA. Basquetebol: história, regras, fundamentos. Disponível em: https://brasilescola.uol.com.br/educacao-fisica/basquetebol.htm. Acesso em: 17 out. 2024.</li> 
+        </ul>
+    </div>
+</div>
+</body>

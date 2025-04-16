@@ -1,0 +1,140 @@
+<head>
+    <title>Voleibol</title>
+    <style>
+    
+    .bola {
+        list-style-type: disc; /* Define o tipo de marcador como bolinha */
+        padding-left: 20px; /* Adiciona espaço à esquerda */
+        padding-bottom: 10px;
+    }
+    
+    </style>
+    </head>
+
+<body class="Fundo_degra">
+    <%- include('menu'); %>
+    <%- include('style'); %>
+
+
+
+ <!-- Contêiner flexível -->
+ <div class="quadradoTexto d-flex flex-column align-items-center mt-4" style="min-height: calc(100vh - 100px);">
+    <h1 class="tituloEsporte">Voleibol</h1> <!-- Título fora do quadrado -->
+    <!-- Contêiner para o texto -->
+    <div class="containerEsporteTexto d-flex flex-column align-items-center mt-4">
+
+        <div class="forumLink">
+            <a href="/forum?esporte=<%= esporte %>" class="btn botaoTextoForum d-flex align-items-center mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-text chatIcon" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                  </svg>
+               Com Dúvidas? Faça uma pergunta no fórum!
+            </a>
+        </div>
+        <h2 class="subtitulosEsportes text-center" style="color:  #FF9B1E; font-weight: bold;">História do
+            Voleibol</h2>
+            <p>O voleibol é um esporte que combina habilidade, estratégia e trabalho em equipe, e sua história é marcada por inovações e crescimento global. Originado no final do século XIX, o voleibol se desenvolveu rapidamente e se tornou um dos esportes mais praticados e assistidos no mundo.</p>        
+            <h4>Origens do Voleibol</h4>
+            <p>O voleibol foi criado em 1895 por William G. Morgan, um professor de educação física do Massachusetts. Ele buscava uma alternativa ao basquete que fosse menos intensa fisicamente e mais acessível a pessoas de diferentes idades. Morgan inicialmente chamou o jogo de "mintonette", combinando elementos de tênis e basquete. A primeira partida oficial foi realizada em 7 de julho de 1896, onde as regras básicas foram testadas.</p>
+
+
+            <h4>Evolução das Regras</h4>
+
+            <p>Com o aumento do interesse pelo novo esporte, as regras começaram a ser formalizadas. Em 1897 foi publicado as primeiras diretrizes oficiais. O jogo evoluiu rapidamente, e em 1900 o nome "voleibol" foi adotado, refletindo o objetivo principal do jogo: fazer a bola "voar" sobre a rede. A introdução da rede, que se tornou um elemento central do jogo, ajudou a definir o voleibol como o conhecemos hoje.
+            </p>
+
+            <h4>Expansão Internacional</h4>
+
+            <p>Nos anos seguintes, o voleibol começou a se espalhar para outros países. Em 1908, foi realizada a primeira partida internacional entre os Estados Unidos e o Canadá. O esporte ganhou popularidade na Europa durante as duas guerras mundiais, quando era frequentemente jogado em campos e acampamentos militares. A fundação da Federação Internacional de Voleibol (FIVB) em 1947 foi um marco importante para a organização e regulamentação do esporte em nível global.</p>
+        
+        <h2 style="color:  #FF9B1E; font-weight: bold;">Regras</h2>
+        <p>O voleibol é um esporte coletivo dinâmico que envolve duas equipes, cada uma composta por seis jogadores. As regras do voleibol são definidas pela Federação Internacional de Voleibol (FIVB) e visam garantir a fluidez e a justiça do jogo. A seguir, estão as principais regras do voleibol, organizadas em seções detalhadas.</p>
+        
+        <h4>Estrutura da Partida</h4>
+
+        <p>Uma partida de voleibol é disputada em sets, com a possibilidade de variar entre 3 a 5 sets. Para vencer uma partida, uma equipe deve ganhar três sets. Cada set tem um limite de 25 pontos, e para vencer um set, é necessário ter uma diferença mínima de 2 pontos. Se o placar atingir 24 a 24, o set continua até que uma equipe consiga abrir essa diferença. No caso de um empate em sets (2 a 2), um quinto set, conhecido como tie-break, é disputado até 15 pontos, também com a necessidade de uma diferença mínima de 2 pontos.</p>
+        
+        <h4>Número de Jogadores</h4>
+
+        <p>Cada equipe é composta por seis jogadores em quadra, além de um número ilimitado de reservas. Os jogadores devem se posicionar corretamente durante o saque e a rotação deve ser feita no sentido horário. O jogador que ocupa a posição 1 é responsável pelo saque inicial.</p>
+        
+                
+        <h4>Posições dos Jogadores</h4>
+        
+        <ul>
+            <li style="font-weight: bold;">Levantador: </li> Responsável por levantar a bola para os atacantes e armar a jogada.
+            <li style="font-weight: bold;">Atacante: </li> Realiza os ataques visando marcar pontos, geralmente cortando a bola.
+            <li style="font-weight: bold;">Central:</li>  Atua próximo à rede para bloquear ataques adversários e realizar ataques rápidos.
+            <li style="font-weight: bold;">Líbero: </li> Especialista em defesa e recepção da bola, geralmente não podem atacar nem sacar.
+        </ul>
+        
+
+        <h4>Saque</h4>
+
+        <p>O jogo começa com o saque, onde o jogador deve arremessar a bola por cima da rede e dentro da quadra adversária. O sacador deve permanecer na zona de saque, que se estende por 9 metros a partir da linha de fundo. Se a bola tocar no chão do time adversário, um ponto é marcado.</p>
+        
+        <h4>Toques na Bola</h4>
+
+        <p>Cada equipe tem direito a até três toques na bola antes de enviá-la à quadra adversária. Os toques podem incluir recepção, levantamento e ataque. É permitido um quarto toque apenas se um bloqueio for realizado pela equipe adversária.</p>
+        
+        
+        <h4>Sistema de Rodízio</h4>
+
+        <p>A cada saque, os jogadores devem rotacionar suas posições no sentido horário. Após o saque, os jogadores podem se movimentar livremente na quadra, mas aqueles que estavam nas posições 1, 5 e 6 não podem atacar além da linha dos três metros. Este sistema é muito utilizado em escolas para que todos experimentem todas a posições, não sendo recomendado para jogos profissionais.</p>
+        
+        <h4>Faltas Comuns</h4>
+        
+        <ul>
+            <li style="font-weight: bold;">Dois Toques: </li> Quando um jogador toca a bola duas vezes consecutivas.
+            <li style="font-weight: bold;">Dois Toques: </li> Quando a equipe toca na bola quatro vezes antes de enviá-la aos adversários (exceto em caso de bloqueio).
+            <li style="font-weight: bold;">Toque Apoiador: </li> Quando um jogador se apoia em outro jogador ou em qualquer estrutura dentro da quadra.
+            <li style="font-weight: bold;">Invasão:  </li>  Quando um jogador invade o espaço da quadra adversária ou toca na rede durante uma jogada.
+            <li style="font-weight: bold;">Condução: </li> Quando um jogador empurra ou carrega a bola ao invés de golpeá-la.
+        </ul>
+
+        <h4>Pontuação</h4>
+
+        <p>O sistema de pontuação no voleibol é conhecido como "rally point", um formato que torna o jogo ainda mais dinâmico. Nesse sistema, um ponto é marcado em cada jogada, independentemente de qual equipe está realizando o saque. Isso significa que tanto a equipe que saca a bola, quanto aquela que recebe têm a oportunidade de marcar pontos a cada troca de bola.</p>
+        
+        <h4>Toque</h4>
+
+        <p>O toque é um movimento fundamental no voleibol, utilizado principalmente para levantamento e passe. Neste movimento, o jogador posiciona as mãos separadas acima da cabeça e toca a bola com os dedos, impulsionando-a para cima. É crucial que o toque seja feito de maneira limpa e controlada, evitando conduções ou toques longos que podem resultar em faltas. O toque é frequentemente utilizado quando a bola está em uma altura adequada para ser levantada, permitindo ao levantador criar uma jogada favorável para o atacante.</p>
+        
+        <h4>Manchete</h4>
+
+        <p>A manchete é outro fundamento básico do voleibol, especialmente importante durante a recepção de saques ou ataques adversários. Para executar uma manchete, os jogadores unem as mãos e mantêm os braços retos, formando uma superfície sólida com os antebraços. Essa técnica é ideal para bolas mais baixas e permite que o jogador direcione a bola de volta à quadra ou para um companheiro de equipe. A manchete é crucial na defesa, pois ajuda a manter a bola em jogo e possibilita uma transição suave para o ataque.
+        </p>
+        
+        <h4>Cortada</h4>
+
+        <p>A cortada é um movimento de ataque que visa marcar pontos ao finalizar uma jogada. Para realizar uma cortada eficaz, o jogador salta e bate na bola com a palma da mão de cima para baixo. O objetivo da cortada é passar pelo bloqueio adversário e fazer a bola cair dentro da quadra do time oposto. Existem diferentes tipos de cortadas, como a cortada paralela (que vai em linha reta) e a cortada diagonal (que cruza a quadra), permitindo ao atacante explorar as fraquezas da defesa adversária. A técnica envolve não apenas força, mas também precisão e timing para garantir que a bola seja direcionada corretamente.</p>
+        
+        <h4>Como Sacar</h4>
+
+        <p>O saque é o movimento que dá início à jogada no voleibol e pode ser realizado de várias maneiras. Um saque bem executado pode causar dificuldades à equipe adversária e até resultar em pontos diretos.</p>
+        
+        <ul>
+            <li style=" font-weight: bold;">Saque por Baixo:</li>Este tipo de saque é realizado com o jogador em pé atrás da linha de fundo. O jogador segura a bola com uma mão e dá um toque por baixo com a outra mão, lançando-a sobre a rede. É um saque mais fácil de controlar e geralmente utilizado por iniciantes.
+            <li style=" font-weight: bold;">Saque por Cima:</li>  Neste saque, o jogador lança a bola para cima e atinge-a com uma das mãos acima da cabeça. O movimento deve ser fluido e rápido, permitindo que a bola viaje com força sobre a rede.
+            </ul>
+
+        <h4>Reinício do Jogo</h4>
+
+        <p>Após cada ponto marcado, o jogo é reiniciado com o saque da equipe que ganhou o ponto anterior. O saque deve ser feito dentro das regras estabelecidas para garantir que o jogo continue sem interrupções desnecessárias.</p>
+        
+        <p>Essas regras formam a base do voleibol moderno e são essenciais para garantir um jogo justo e emocionante. O respeito às normas contribui para a integridade do esporte e proporciona uma experiência mais rica tanto para os jogadores quanto para os espectadores.</p>
+
+        <br> <br><br>
+        <h2  style="color:  #FF9B1E; font-weight: bold;">Referências</h2>
+        <ul class="bola">
+        <li>RANGEL, P. A. W. A Prática do Voleibol: Benefícios no Âmbito Escolar. 2023. Dis-
+            sertação (Mestrado em Ciência da Computação) — Centro Universitário Uniceuma.</li>
+        <li>Confederação Brasileira de Voleibol. Regras do Voleibol 2021-2024. 2023. Disponí-
+            vel em: <https://cbv.com.br/wp-content/uploads/2023/07/regra2021 − 2024−f inal.pdf >
+            .Acesso em : 2024−10−16.</li> 
+        </ul>
+    </div>
+    
+</div>
+</body>

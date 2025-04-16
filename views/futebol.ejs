@@ -1,0 +1,173 @@
+<head>
+<title>Futebol</title>
+<style>
+
+.bola {
+    list-style-type: disc; /* Define o tipo de marcador como bolinha */
+    padding-left: 20px; /* Adiciona espaço à esquerda */
+    padding-bottom: 10px;
+}
+
+</style>
+</head>
+
+<body class="Fundo_degra">
+    <%- include('menu'); %>
+        <%- include('style'); %>
+
+
+
+            <!-- Contêiner flexível -->
+            <div class="quadradoTexto d-flex flex-column align-items-center mt-4"
+                style="min-height: calc(100vh - 100px);">
+                <h1 class="tituloEsporte">Futebol</h1>
+
+                <!-- Contêiner para o texto -->
+                <div class="containerEsporteTexto d-flex flex-column align-items-center mt-4">
+
+                    <div class="forumLink">
+                        <a href="/forum?esporte=<%= esporte %>"
+                            class="btn botaoTextoForum d-flex align-items-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chat-left-text chatIcon" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                            Com Dúvidas? Faça uma pergunta no fórum!
+                        </a>
+                    </div>
+
+                    <h2 class="subtitulosEsportes text-center"  style="color:  #FF9B1E; font-weight: bold;">História do Futebol</h2>
+                    <h4 >Origens Antigas</h4>
+                    <p>O futebol tem raízes que remontam a civilizações antigas. Jogos semelhantes ao futebol foram
+                        praticados na China, Grécia e Roma.
+                        Um dos primeiros registros de um jogo com características do futebol moderno é encontrado na
+                        dinastia Han, na China, por volta de 206
+                        a.C. a 220 d.C., onde um jogo chamado "cuju" era jogado com uma bola feita de couro.</p>
+
+                    <h4>A Popularização Global</h4>
+                    <p>O futebol moderno começou a tomar forma no século XIX na Inglaterra. Em 1863, foi fundada a
+                        Football Association (FA), que estabeleceu as primeiras regras oficiais do jogo.
+                        A partir daí, o esporte se espalhou rapidamente pela Europa e pelo mundo. A Fédération
+                        Internationale de Football
+                        Association (FIFA) foi criada em 1904 para governar o futebol internacionalmente. O primeiro
+                        torneio da Copa do Mundo foi realizado em
+                        1930 no Uruguai, marcando um marco importante na popularização do esporte.</p>
+
+                    <h4>Chegada no Brasil</h4>
+                    <p1>O futebol chegou ao Brasil em 1894 através de Charles Miller,
+                        que trouxe bolas e as regras do jogo da Inglaterra. A introdução desse esporte no país fo
+                        i um marco importante, pois rapidamente ganhou popularidade entre os brasileiros. O primeiro
+                        clube
+                        dedicado ao futebol no Brasil foi a Associação Atlética Mackenzie College, fundada em 1898. A
+                        partir
+                        daí, o esporte começou a se espalhar pelo país, conquistando adeptos de todas as classes sociais
+                        e se
+                        tornando uma parte fundamental da cultura brasileira.</p1>
+
+                        <h2  style="color:  #FF9B1E; font-weight: bold;">Regras</h2>
+                        <p>
+                        O futebol é regido por um conjunto de regras estabelecidas pela International Football Association Board (IFAB).
+                        Essas regras são fundamentais para garantir a justiça e a fluidez do jogo. Atualmente, existem 17 regras principais
+                        que cobrem todos os aspectos do esporte.</p>
+
+                        <h4>O Campo</h4>
+                        <p>
+                        O campo de futebol deve ser retangular e marcado com linhas laterais e linhas de fundo. As dimensões variam
+                        entre 90 a 120 metros de comprimento e 45 a 90 metros de largura. No centro do campo, há um círculo com um 
+                        raio de 9,15 metros, que é utilizado para o pontapé inicial. As áreas de gol são delimitadas por duas traves,
+                        que devem ter uma distância interna de 7,32 metros entre os postes e uma altura de 2,44 metros.</p>
+
+                        <h4>A Bola</h4>
+                        <p>
+                        A bola utilizada no futebol deve ser esférica e atender a especificações rigorosas. Sua circunferência deve 
+                        medir entre 68 cm e 70 cm, e seu peso deve variar entre 410 g e 450 g no início da partida. Além disso, a pressão da
+                        bola deve estar entre 0,6 e 1,1 atmosferas (600 - 1.100 g/cm²) ao nível do mar.</p>
+
+                        <h4>Os Jogadores</h4>
+                        <p>
+                        Cada equipe é composta por um máximo de 11 jogadores, incluindo um goleiro.
+                        Para que uma partida seja válida, cada time deve ter pelo menos sete jogadores em campo. Durante o jogo, as equipes
+                        podem realizar substituições; atualmente, são permitidas até cinco substituições, com uma sexta em caso de concussão.
+                    </p>
+
+                        <h4>Equipamento dos Jogadores</h4>
+
+                        <p>Os jogadores devem usar um uniforme adequado que não represente perigo para si mesmos ou para os outros.
+                        O equipamento básico inclui camisa, calças curtas, meias longas e caneleiras feitas de material apropriado.
+                        As chuteiras devem ter cravos adequados ao tipo de campo. As cores das camisas das duas equipes devem ser distintas
+                        para evitar confusão.</p>
+
+                        <h4>O Árbitro</h4>
+
+                        <p>O árbitro central é responsável por aplicar as regras durante a partida. Ele tem autoridade para tomar decisões
+                        sobre faltas, infrações e outras situações que possam surgir durante o jogo. O árbitro pode também aplicar
+                        cartões amarelos e vermelhos como forma de disciplinar jogadores que cometem infrações.</p>
+
+                        <h4>Outros Membros da Equipe de Arbitragem</h4>
+
+                        <p>Além do árbitro central, existem assistentes (bandeirinhas) que ajudam na fiscalização das regras, especialmente
+                        em relação ao impedimento e nas saídas de bola. Em competições profissionais, também pode haver um quarto árbitro
+                        e assistentes adicionais que monitoram o uso do sistema de assistência por vídeo (VAR).</p>
+
+                        <h4>Duração da Partida</h4>
+
+                        <p>Uma partida de futebol é dividida em dois tempos de 45 minutos cada, com um intervalo de até 15 minutos entre eles. O árbitro pode adicionar tempo extra ao final de cada tempo para compensar interrupções no jogo.</p>
+
+                        <h4>Início e Reinício do Jogo</h4>
+
+                        <p>O jogo começa com um pontapé inicial no centro do campo após o apito do árbitro. O reinício ocorre após cada gol marcado ou em situações como tiros livres, arremessos laterais ou escanteios. Todos os jogadores devem estar em sua metade do campo durante esses reinícios.</p>
+
+                        <h4>A Bola em Jogo e Fora de Jogo</h4>
+
+                        <p>A bola está em jogo enquanto não ultrapassar completamente as linhas que delimitam o campo. Ela está fora quando é totalmente cruzada pela linha lateral ou pela linha de fundo. A bola também pode ser considerada fora se o árbitro interromper a partida por qualquer motivo.</p>
+
+                        <h4>O Gol</h4>
+
+                        <p>Um gol é marcado quando a bola ultrapassa completamente a linha de gol entre os postes e abaixo do travessão. Se a bola for tocada por um jogador da equipe defensora antes de entrar no gol, isso é considerado um gol contra.</p>
+
+                        <h4>O Impedimento</h4>
+
+                        <p>Um jogador está em posição de impedimento se estiver mais próximo da linha de gol adversária do que o penúltimo defensor quando a bola é jogada para ele. No entanto, não é considerado impedimento se o jogador receber a bola diretamente em um tiro livre ou arremesso lateral.</p>
+
+                        <h4>Faltas e Condutas Irregulares</h4>
+
+                        <p> Faltas são cometidas quando um jogador age de forma antidesportiva ou perigosa contra um adversário. Isso inclui chutar, empurrar ou segurar um jogador adversário. Dependendo da gravidade da falta, o árbitro pode aplicar cartões amarelos (advertência) ou vermelhos (expulsão). </p>
+
+                        <h4>Tiros Livres</h4>
+
+                        <p>Os tiros livres podem ser diretos ou indiretos. Um tiro livre direto permite ao jogador chutar diretamente ao gol; já o indireto requer que outro jogador toque na bola antes que um gol possa ser marcado.</p>
+
+                        <h4>Pênaltis</h4>
+
+                        <p>Um pênalti é concedido quando uma falta ocorre dentro da área penal do time defensor. O tiro é executado a partir da marca situada a 11 metros do gol.</p>
+
+                        <h4>Arremesso Lateral</h4>
+
+                        <p>Quando a bola sai pela linha lateral, o jogo é reiniciado com um arremesso lateral feito pelo time que não tocou na bola por último antes dela sair. O arremesso deve ser feito com ambas as mãos e os pés devem permanecer no chão.</p>
+
+                        <h4> Tiro de Meta</h4>
+
+                        <p>Um tiro de meta é concedido quando a bola ultrapassa a linha de fundo após ter sido tocada por um jogador atacante. O goleiro executa o tiro dentro da área pequena.</p>
+
+                        <h4>Escanteio</h4>
+                        <p>Um escanteio é concedido quando a bola ultrapassa a linha de fundo após tocar em um jogador defensor. O escanteio deve ser cobrado da área mais próxima onde a bola saiu.</p>
+                        <br> <br><br>
+
+                        <h2  style="color:  #FF9B1E; font-weight: bold;">Referências</h2>
+                        <ul class="bola">
+                        <li>SANTANA, P. J. X.; CASAROTTO, V. J.; ROSA, C. L. L. d.; ANTUNES, F. R. A IM-
+                            PORTÂNCIA DA PRÁTICA DO FUTEBOL NO ENSINO FUNDAMENTAL II. Revista
+                            Saberes Docentes, [S.l.], v.6, n.11, 2021.</li>
+                        <li>ESCOLA, B. História do futebol | Tudo sobre essa paixão nacional! 2018. Dis-
+                            ponível em: <https://brasilescola.uol.com.br/educacao-fisica/historia-do-futebol.htm>.
+                            Acesso em: 2024-10-16.</li>
+
+                            <li>WIKIPEDIA. Regras do futebol. Disponível em: https://pt.wikipedia.org/wiki/Regras_do_futebol. Acesso em: 16 out. 2024.</li>
+                
+                        </ul>
+                    </div>
+            </div>
+</body>

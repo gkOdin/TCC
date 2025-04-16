@@ -1,0 +1,122 @@
+<head>
+    <title>Handebol</title>
+    <style>
+    
+    .bola {
+        list-style-type: disc; /* Define o tipo de marcador como bolinha */
+        padding-left: 20px; /* Adiciona espaço à esquerda */
+        padding-bottom: 10px;
+    }
+    
+    </style>
+    </head>
+
+<body class="Fundo_degra">
+    <%- include('menu'); %>
+        <%- include('style'); %>
+
+
+
+            <!-- Contêiner flexível -->
+            <div class="quadradoTexto d-flex flex-column align-items-center" style="min-height: calc(100vh - 100px);">
+                <h1 class="tituloEsporte">Handebol</h1> <!-- Título fora do quadrado -->
+                <!-- Contêiner para o texto -->
+                <div class="containerEsporteTexto d-flex flex-column align-items-center mt-4">
+
+                    <div class="forumLink">
+                        <a href="/forum?esporte=<%= esporte %>"
+                            class="btn botaoTextoForum d-flex align-items-center mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-chat-left-text chatIcon" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                            Com Dúvidas? Faça uma pergunta no fórum!
+                        </a>
+                    </div>
+
+                <h2 class="subtitulosEsportes text-center" style="color:  #FF9B1E; font-weight: bold;">História do
+                    Handeol</h2>
+                    <p>O handebol é um esporte coletivo que combina velocidade, estratégia e trabalho em equipe. Sua história é rica e remonta ao final do século XIX, com influências de diversas modalidades esportivas.</p>
+                <h4>Origens do Handebol</h4>
+                <p>As raízes do handebol moderno podem ser traçadas até o final do século XIX, na Alemanha e nos países escandinavos. Inicialmente, o esporte era jogado ao ar livre, com 11 jogadores em cada equipe, semelhante ao futebol. Em 1892, o professor de ginástica Konrad Koch introduziu uma versão chamada raffballspied, que apresentava características semelhantes ao handebol atual. Na Boêmia, um jogo chamado hazena também era praticado nas escolas, com equipes de sete jogadores.</p>
+
+                <h4>Desenvolvimento e Formalização</h4>
+                <p>O verdadeiro "pai" do handebol moderno é considerado o professor alemão Karl Schelenz, que, em 1919, reformulou as regras do torball, um esporte para deficientes visuais. As novas regras foram publicadas pela Federação Alemã de Ginástica, permitindo que o handebol fosse praticado de forma competitiva em países como Áustria e Suíça. Em 1925, ocorreu a primeira partida internacional entre equipes da Alemanha e da Áustria.</p>
+
+                <h4>Reconhecimento Internacional</h4>
+                <p>O handebol começou a ganhar reconhecimento internacional quando foi incluído nos Jogos Olímpicos de Berlim em 1936. Naquela época, ainda era jogado ao ar livre com 11 jogadores por equipe. Em 1938, o primeiro Campeonato Mundial de Handebol foi realizado na Alemanha. A partir da década de 1940, devido a condições climáticas desfavoráveis nos países nórdicos, a modalidade começou a ser disputada em ginásios fechados, levando à redução do número de jogadores para sete por equipe.</p>
+
+                <h4></h4>
+
+                <h2 style="color:  #FF9B1E; font-weight: bold;">Regras</h2>
+                <p>O handebol é um esporte coletivo dinâmico que envolve duas equipes de sete jogadores. As regras do
+                    handebol são estabelecidas pela Federação Internacional de Handebol (IHF) e visam garantir a fluidez
+                    e a justiça do jogo. A seguir, estão as principais regras do handebol, organizadas em seções
+                    detalhadas.</p>
+
+                <h4>O Campo</h4>
+
+                <p>A quadra de handebol é retangular, com dimensões padronizadas de 40 metros de comprimento por 20 metros de largura. Em cada extremidade da quadra, há um gol que mede 3 metros de largura por 2 metros de altura. As linhas que delimitam o campo são fundamentais para definir as áreas de jogo, incluindo a área do goleiro, que se estende por 6 metros a partir da linha do gol. Apenas o goleiro pode entrar nessa área durante o jogo.</p>
+
+                <h4>A Bola</h4>
+
+                <p>A bola de handebol é feita de couro ou material sintético e possui diferentes tamanhos e pesos para as categorias masculina e feminina. Para os homens, a bola tem uma circunferência entre 58 e 60 cm e pesa entre 425 e 475 gramas. Para as mulheres, a circunferência varia entre 54 e 56 cm e o peso entre 325 e 375 gramas. A bola deve ser jogada com as mãos, e é comum o uso de resina para melhorar a aderência.</p>
+
+                <h4>Jogadores</h4>
+
+                <p>Cada equipe é composta por sete jogadores, incluindo um goleiro. Durante a partida, até sete jogadores reservas podem ser utilizados, e as substituições são ilimitadas. As trocas podem ocorrer a qualquer momento, desde que feitas na zona designada para substituições. O goleiro é o único jogador que pode usar os pés para tocar a bola dentro da área de gol.</p>
+
+                <h4>Duração da Partida</h4>
+
+                <p>Uma partida de handebol é dividida em dois tempos de 30 minutos cada, com um intervalo de 10 minutos entre os períodos. O tempo não é interrompido durante o jogo, exceto em situações específicas como lesões ou advertências. Se houver empate ao final do tempo regulamentar, a partida pode ir para prorrogação ou ser decidida em uma disputa de tiros de sete metros.</p>
+
+                <h4>Movimentação da Bola</h4>
+
+                <p>Os jogadores podem dar até três passos sem driblar a bola. Após esse limite, devem quicar a bola ou passá-la a um companheiro para continuar avançando. Quando um jogador recebe a bola, ele pode segurá-la por até três segundos antes de passar ou arremessar. Essas regras garantem um jogo rápido e dinâmico.</p>
+
+                <h4>Faltas e Penalidades</h4>
+
+                <p>Faltas são cometidas quando há contato físico excessivo ou ações perigosas, como empurrões ou tentativas de arrancar a bola das mãos do adversário. Dependendo da gravidade da infração, os árbitros podem aplicar advertências ou penalidades. Faltas graves dentro da área do goleiro resultam em tiros livres ou tiros de sete metros.</p>
+
+                <h4>Cartões</h4>
+
+                <ul>
+                    <li style="color:yellow; font-weight: bold;">Cartão Amarelo: </li> Serve como advertência. Um jogador que receber dois cartões amarelos deve sair por dois minutos.
+                    <li style="color: red; font-weight: bold;">Cartão Vermelho:</li> É dado por faltas mais graves e resulta na expulsão imediata do jogador. A equipe permanece com um jogador a menos durante dois minutos.
+                    <li style="color: blue; font-weight: bold;">Cartão Azul: </li>Indica uma infração que será relatada após o jogo.
+                </ul>
+
+                <h4>Reinício do Jogo</h4>
+
+                <p>Após um gol, o jogo é reiniciado com um lançamento do meio da quadra pela equipe que sofreu o gol. Para faltas comuns, o jogo é reiniciado com um tiro livre no local da infração, onde a defesa deve manter uma distância mínima de três metros.</p>
+
+                <h4>Tiro Livre</h4>
+
+                <p>Um tiro livre é concedido após faltas menores cometidas fora da área do goleiro. O jogador que executa o tiro deve fazê-lo rapidamente para evitar que a defesa se organize.</p>
+
+                <h4>Tiro de Sete Metros</h4>
+
+                <p>Um tiro de sete metros é concedido após faltas graves na área de arremesso (dentro dos seis metros). O goleiro deve permanecer em sua linha até que o arremessador inicie seu movimento.</p>
+
+                <h4>Substituições</h4>
+
+                <p>As substituições são ilimitadas no handebol e podem ocorrer a qualquer momento durante o jogo. No entanto, devem ser realizadas na zona designada para substituições para evitar interrupções desnecessárias no jogo.</p>
+
+                <p>Essas regras formam a base do handebol moderno e são essenciais para garantir um jogo justo e emocionante. O respeito às normas contribui para a integridade do esporte e proporciona uma experiência mais rica tanto para os jogadores quanto para os espectadores.</p>
+
+                <br> <br><br>
+                <h2  style="color:  #FF9B1E; font-weight: bold;">Referências</h2>
+                <ul class="bola">
+                <li>Confederação Brasileira de Handebol. Regras de Handebol.
+                    Tradução: Prof. Sálvio Pereira Sedrez. 2010. Disponível em:
+                    <https://files.cercomp.ufg.br/weby/up/155/o/REGRASH AN DEBOL.pdf > .Acesso em :
+                    2024−10−16.</li>
+                <li>Secretaria de Educação do Estado de Goiás. Regras do Handebol. n.d. Disponível
+                    em: https://educacao.go.gov.br/educacao/servicos/desportoescolar/pdf/regras</li> 
+                    <li>PARANÁ HANDEBOL. Conheça o handebol. Disponível em: https://www.paranahandebol.com.br/conheca-o-handebol/. Acesso em: 16 out. 2024.</li>
+       
+                </ul>
+</body>

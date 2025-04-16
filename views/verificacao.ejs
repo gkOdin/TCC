@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de E-mail</title>
+    <style>
+        .error-message {
+            color: red;
+            background-color: #ffeeee;
+            border: 1px solid red;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Verifique seu E-mail</h2>
+
+    <% if (typeof error !== 'undefined') { %>
+        <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <form method="post" action="/verificar-email">
+        <input type="email" name="email" placeholder="Seu E-mail" required>
+        <input type="text" name="code" placeholder="Código de Verificação" required>
+        <input type="submit" value="Verificar">
+    </form>
+
+    <p>Se você não recebeu o código, verifique sua caixa de spam ou tente novamente.</p>
+</body>
+</html>

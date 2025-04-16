@@ -1,0 +1,357 @@
+<html>
+
+<head>
+
+  <style>
+    .todos_cards {
+      /* Estilizar cards main*/
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+
+    }
+
+    .btn_cor {
+      /* estilização botão dos cards */
+      background-color: #FF9B1E;
+      color: #ffffff;
+    }
+
+    .btn_cor:hover {
+      background-color: #ca760f;
+      color: #ffffff;
+    }
+
+    .Fundo_degra {
+      /* Degradê*/
+      background: linear-gradient(to top, #242222, #333333);
+
+    }
+
+    .card_fundo {
+      /* Cor de fundo cards esportes*/
+      background-color: #ffffff;
+
+    }
+
+    .texto_nav {
+      /* Cor texto menu*/
+      color: #ffffff;
+    }
+
+    .navbar {
+      /* Fixar Menu no topo*/
+      font-family: Arial, Helvetica, sans-serif;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+
+    }
+
+    .form_centro {
+      /* centralizar o formulário de cadastro e login */
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form_estilo {
+      /* Estilizar formulário cadastro e login*/
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .campos_form {
+      /* Estizar campos do form cadastro e login */
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #FF9B1E;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .campo_enviar {
+      /* Estizar campo de submit do form cadastro e login */
+      width: 100%;
+      padding: 10px;
+      background-color: #FF9B1E;
+      border: none;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Estizar as páginas de futebol, handebol, volei e basquete */
+    .titulosEsportes {
+      text-align: center;
+    }
+
+    /* Estilizar a frase da tela inicial */
+    .fraseInicio {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      text-align: left;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      color: rgb(255, 255, 255);
+    }
+
+    .fraseInicio1 {
+    font-weight: 700; /* Negrito para o primeiro título */
+    text-shadow: 2px 2px 4px rgb(255, 155, 30); /* Sombra para dar destaque */
+}
+
+    .fraseInicio {
+      text-align: center;
+    }
+
+    .divfraseInicio {
+      margin-left: 50px;
+    }
+
+    .botaoEntrar {
+      width: 15vw;
+      /* Defina a largura desejada */
+      height: 4vw;
+      text-align: center;
+      /* Centraliza o texto dentro do botão */
+      border-radius: 35%;
+      /* Faz o círculo */
+      background-color: rgb(255, 155, 30);
+      color: #ffffff;
+      margin-left: 30%;
+      margin-top: 10%;
+      font-size: 20px;
+    }
+
+    .botaoEntrar:hover {
+      background-color: rgb(255, 170, 0);
+      color: #ffffff;
+    }
+
+    .fotoEntrar {
+      width: 15vw;
+      /* Defina a largura desejada */
+      height: 4vw;
+      text-align: center;
+      /* Centraliza o texto dentro do botão */
+      margin-left: 30%;
+      margin-top: 10%;
+      font-size: 20px;
+    }
+
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      /* Ajuste o padding conforme necessário */
+      margin-left: 50px;
+      margin-right: 50px;
+      color: #ffffff;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7vw;
+      /* Largura do círculo */
+      height: 4vw;
+      /* Altura do círculo */
+      background-color: rgb(255, 155, 30);
+      /* Cor do círculo */
+      border-radius: 35%;
+      /* Faz o círculo */
+      transform: translate(-50%, -50%);
+      /* Centraliza o círculo */
+      z-index: -1;
+      /* Coloca o círculo atrás do texto */
+    }
+
+    .nav-link:hover::before {
+      background-color: rgb(255, 170, 0);
+      /* Cor do círculo ao passar o mouse (opcional) */
+    }
+
+    .nav-link.logged-in::before {
+    background-color: transparent; /* Torna transparente quando logado */
+}
+
+
+    .containerEsporteTexto {
+      /* estilizar os fundos de textos sobre esportes */
+      width: 80%;
+      /* Largura do contêiner */
+      max-width: 800px;
+      /* Largura máxima */
+      background-color: rgb(75, 72, 72);
+      /* Cor de fundo cinza */
+      padding: 20px;
+      /* Espaçamento interno */
+      border-radius: 10px;
+      /* Bordas arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      /* Sombra */
+      min-height: calc(100vh - 100px);
+      color: #ffffff;
+    }
+
+    .quadradoTexto {
+      padding-top: 10%;
+    }
+
+    .quadradoTextoPer {
+      padding-top: 15%;
+    }
+
+    .tituloEsporte {
+      margin-top: 2px;
+      color: #ffffff;
+      font-size: 60px;
+    }
+
+    .botaoTextoForum {
+      background-color: rgb(255, 155, 30);
+      color: #ffffff;
+    }
+
+    .botaoTextoForum:hover {
+      text-decoration: underline;/* Adiciona sublinhado ao passar o mouse */
+      background-color: rgb(255, 187, 0);
+    }
+
+    .botaoCancelar {
+      background-color: rgb(255, 0, 0);
+      color: #ffffff;
+      margin-top: 15px;
+    }
+
+    .botaoCancelar:hover {
+      text-decoration: underline;/* Adiciona sublinhado ao passar o mouse */
+      background-color: rgb(255, 21, 0);
+      
+    }
+
+    .botaoEnviar {
+      background-color: rgb(20, 202, 38);
+      color: #ffffff;
+      margin-top: 15px;
+    }
+
+    .botaoEnviar:hover {
+      text-decoration: underline;/* Adiciona sublinhado ao passar o mouse */
+      background-color: rgb(12, 235, 38);
+
+    }
+
+    .botaoPerguntar {
+      background-color: rgb(255, 155, 30);
+      color: #ffffff;
+      margin-top: 15px;
+      width: 50%;
+    }
+
+    .botaoPerguntar:hover {
+      text-decoration: underline;/* Adiciona sublinhado ao passar o mouse */
+      background-color: rgb(255, 187, 0);
+      color: #ffffff;
+    }
+
+    .botaoResponder {
+      background-color: rgb(255, 155, 30);
+      color: #ffffff;
+      margin-top: 15px;
+    }
+
+    .botaoResponder:hover {
+      text-decoration: underline;/* Adiciona sublinhado ao passar o mouse */
+      background-color: rgb(255, 187, 0);
+      color: #ffffff;
+
+    }
+
+    .chatIcon {
+
+      margin-right: 1vw;
+    }
+
+    .form-group label {
+      font-size: 25px;/* Aumente o tamanho do rótulo */
+      font-weight: bold;
+    }
+
+    .formControlPer {
+      width: 100%;
+      padding: 10px;/* Adiciona espaçamento interno */
+      border-radius: 5px;/* Bordas arredondadas */
+      border: 1.5px solid rgb(255, 155, 30);/* Borda padrão */
+      font-size: 16px;/* Aumente o tamanho da fonte do campo de entrada */
+      margin-top: 15px;
+      margin-bottom: 15px;
+
+    }
+
+    .perguntaForm{
+      text-align: center;
+      margin-top: 8%;
+    }
+
+.cardFor {
+    background-color: rgb(75, 72, 72); /* Cor de fundo cinza para as perguntas */
+    color: #ffffff; /* Cor do texto */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+.cardTituloFor {
+    font-weight: bold; /* Títulos em negrito */
+}
+
+.forumUsu{
+  padding-top: 10%;
+}
+
+.tituloForum {
+    font-size: 40px; /* Tamanho da fonte */
+    color: #ffffff; /* Cor do texto */
+    margin-top: 20px; /* Espaçamento acima do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+.botaoSair{
+    background-color: rgb(255, 155, 30); /* Cor de fundo laranja */
+    color: #ffffff; /* Cor do texto branco */
+    text-align: center; /* Centraliza o texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.dropdown-item{
+  color:#ffffff;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(255, 187, 0); /* Cor de fundo amarelo ao passar o mouse */
+    color: #ffffff; /* Mantém o texto branco ao passar o mouse */
+}
+
+
+  </style>
+
+</head>
+
+</html>

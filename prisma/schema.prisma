@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Tb_usuarios {
+  id         Int             @id @default(autoincrement())
+  email      String          @unique
+  nome       String
+  senha      String
+  arquivo    String
+  perguntas  Tb_perguntas[]
+  respostas  Tb_respostas[]
+  avaliacoes Tb_avaliacoes[]
+}
+
+model Tb_categoria {
+  idCat    Int            @id @default(autoincrement())
+  nomeCat  String
+  pergunta Tb_perguntas[]
+}
+
+model Tb_perguntas {
+  idPer       Int            @id @default(autoincrement())
+  categorias  Tb_categoria   @relation(fields: [idCat], references: [idCat])
+  idCat       Int
+  usuarios    Tb_usuarios    @relation(fields: [idUsu], references: [id])
+  idUsu       Int
+  tituloPer   String
+  conteudoPer String
+  respostas   Tb_respostas[]
+}
+
+model Tb_respostas {
+  idRes       Int          @id @default(autoincrement())
+  perguntas   Tb_perguntas @relation(fields: [idPer], references: [idPer])
+  idPer       Int
+  usuarios    Tb_usuarios  @relation(fields: [idUsu], references: [id])
+  idUsu       Int
+  conteudoRes String
+}
+
+model Tb_avaliacoes {
+  idAva    Int         @id @default(autoincrement())
+  usuarios Tb_usuarios @relation(fields: [idUsuAva], references: [id])
+  idUsuAva Int
+  tipoAva  String
+  idPost   Int
+  tipoPost String
+}

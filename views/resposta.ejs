@@ -1,0 +1,27 @@
+<body class="Fundo_degra">
+    <%- include('menu'); %>
+        <%- include('style'); %>
+
+
+            <div class="quadradoTextoPer d-flex flex-column align-items-center mt-4"
+                style="min-height: calc(100vh - 100px);">
+                <h1 class="tituloEsporte">Responda a pergunta!</h1> <!-- Título fora do quadrado -->
+                <div class="containerEsporteTexto d-flex flex-column align-items-center mt-4">
+
+                    <!-- Formulário -->
+                    <div class="form-container perguntaForm">
+                        <form id="FormPergunta" action="/respostas/<%= idPer %>?esporte=<%= esporte %>" method="POST">
+                            <div class="form-group">
+                                <label for="conteudoRes">O Que Vai Responder?</label>
+                                <textarea class="formControlPer" name="conteudoRes" id="conteudoRes" rows="3" placeholder="Digite sua resposta" required></textarea>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="/forum?esporte=<%= esporte %>" class="btn botaoCancelar">Cancelar</a>
+                                <button type="submit" class="btn botaoEnviar">Enviar Resposta</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+
+</body>

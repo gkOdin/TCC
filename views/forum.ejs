@@ -1,0 +1,319 @@
+<body class="Fundo_degra" data-iduser="">
+  <%- include('menu'); %>
+    <%- include('style'); %>
+
+      <div class="forumUsu"></div>
+
+      <div class="container mt-4">
+        <h1 class="tituloEsporte text-center">Fórum de <%= esporte.charAt(0).toUpperCase() + esporte.slice(1) %>
+        </h1>
+        <div class="row perguntasForum">
+          <% if(idUser) { %>
+            <div class="text-center mb-4">
+              <a href="/pergunta/<%= esporte %>" class="btn botaoPerguntar btn-lg">
+                Perguntar
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                  class="bi bi-question-lg" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14" />
+                </svg>
+              </a>
+            </div>
+            <% } %>
+              <div class="col-md-12">
+                <% if (semPerguntas) { %>
+                  <div class="text-center">
+                    <% if (idUser) { %>
+                      <p class="text-white">Seja o primeiro a fazer uma pergunta!</p>
+                      <% } else { %>
+                        <p class="text-white">Nenhuma pergunta encontrada.</p>
+                        <% } %>
+                  </div>
+                  <% } else { %>
+                    <% perguntas.forEach(pergunta=> { %>
+                      <div class="cardFor mb-4">
+                        <div class="card-body">
+                          <div class="d-flex align-items-center mb-3">
+                            <img src="/fotos/<%= pergunta.usuarios.arquivo %>" alt="<%= pergunta.usuarios.nome %>"
+                              class="avatar mr-2"
+                              style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                            <strong>
+                              <%= pergunta.usuarios.nome %>
+                            </strong>
+                          </div>
+                          <h5 class="cardTituloFor text-center">
+                            <%= pergunta.tituloPer %>
+                          </h5>
+                          <p class="card-text">
+                            <%= pergunta.conteudoPer %>
+                          </p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                              <button onclick="toggleRespostas(<%= pergunta.idPer %>)" class="btn btn-sm btn-info"
+                                data-iduser="<%= idUser %>">
+                                Mostrar respostas (<%= pergunta.respostas.length %>)
+                              </button>
+
+                              <% if(idUser) { %>
+                                <div class="avaliacao-container">
+
+                                  <button onclick="avaliarPost('pergunta', <%= pergunta.idPer %>, 'like')"
+                                    class="btn btn-sm btn-outline-success avaliacao-btn <%= pergunta.userAvaliacao === 'like' ? 'active' : '' %>"
+                                    data-tipo="like" data-id="<%= pergunta.idPer %>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                      class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                    </svg>
+                                    <span class="avaliacao-count" id="likes-pergunta-<%= pergunta.idPer %>">
+                                      <%= pergunta.likes %>
+                                    </span>
+                                  </button>
+
+                                  <button onclick="avaliarPost('pergunta', <%= pergunta.idPer %>, 'dislike')"
+                                    class="btn btn-sm btn-outline-danger avaliacao-btn <%= pergunta.userAvaliacao === 'dislike' ? 'active' : '' %>"
+                                    data-tipo="dislike" data-id="<%= pergunta.idPer %>">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                      class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                      <path
+                                        d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z" />
+                                    </svg>
+                                    <span class="avaliacao-count" id="dislikes-pergunta-<%= pergunta.idPer %>">
+                                      <%= pergunta.dislikes %>
+                                    </span>
+                                  </button>
+                                </div>
+                                <% } else { %>
+                                  <div class="avaliacao-container">
+                                    <button class="btn btn-sm btn-outline-success avaliacao-btn" disabled>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                        <path
+                                          d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z" />
+                                      </svg>
+                                      <span class="avaliacao-count" id="likes-pergunta-<%= pergunta.idPer %>">
+                                        <%= pergunta.likes %>
+                                      </span>
+                                    </button>
+
+                                    <button class="btn btn-sm btn-outline-danger avaliacao-btn" disabled>
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                        <path
+                                          d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z" />
+                                      </svg>
+                                      <span class="avaliacao-count" id="dislikes-pergunta-<%= pergunta.idPer %>">
+                                        <%= pergunta.dislikes %>
+                                      </span>
+                                    </button>
+                                  </div>
+                                  <% } %>
+                            </div>
+
+                            <div>
+                              <% if(idUser) { %>
+                                <a href="/resposta/<%= pergunta.idPer %>?esporte=<%= esporte %>"
+                                  class="btn btn-sm botaoResponder">Responder</a>
+                                <% } %>
+                                  <% if (pergunta.idUsu===idUser) { %>
+                                    <button onclick="deletePergunta(<%= pergunta.idPer %>)"
+                                      class="btn btn-sm btn-danger">Deletar</button>
+                                    <% } %>
+                            </div>
+                          </div>
+                          <div id="respostas-<%= pergunta.idPer %>" class="respostas-container"
+                            style="display: none; margin-top: 15px;">
+                            <!-- As respostas serão carregadas aqui dinamicamente -->
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                        <% } %>
+              </div>
+        </div>
+      </div>
+
+      <script>
+        function atualizarBotoes(tipo, id, tipoAva) {
+
+          const likeButton = document.querySelector(`button[data-tipo="like"][data-id="${id}"]`);
+          const dislikeButton = document.querySelector(`button[data-tipo="dislike"][data-id="${id}"]`);
+
+          if (likeButton) {
+            likeButton.classList.toggle('active', tipoAva === 'like');
+          }
+
+          if (dislikeButton) {
+            dislikeButton.classList.toggle('active', tipoAva === 'dislike');
+          }
+        }
+
+        function avaliarPost(tipo, id, tipoAva) {
+          fetch(`/avaliar/${tipo}/${id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ tipoAva }),
+          })
+            .then(response => response.json())
+            .then(data => {
+              atualizarContadores(tipo, id, data);
+              atualizarBotoes(tipo, id, data.userAvaliacao);
+            })
+            .catch(error => console.error('Erro:', error));
+        }
+
+        function atualizarContadores(tipo, id, data) {
+          const likesElement = document.getElementById(`likes-${tipo}-${id}`);
+          const dislikesElement = document.getElementById(`dislikes-${tipo}-${id}`);
+
+          if (likesElement) likesElement.textContent = data.likes;
+          if (dislikesElement) dislikesElement.textContent = data.dislikes;
+
+          atualizarBotoes(tipo, id, data.tipoAva);
+        }
+
+        function deletePergunta(idPer) {
+          if (confirm('Tem certeza que deseja deletar esta pergunta?')) {
+            fetch(`/perguntas/${idPer}`, {
+              method: 'DELETE',
+            }).then(() => {
+              window.location.replace('/esportes');
+            }).catch(error => {
+              console.error('Erro ao deletar:', error);
+            });
+          }
+        }
+
+        function deleteResposta(idRes) {
+          if (confirm('Tem certeza que deseja deletar esta resposta?')) {
+            fetch(`/respostas/${idRes}`, {
+              method: 'DELETE',
+            }).then(() => {
+              location.reload();
+            }).catch(error => {
+              console.error('Erro ao deletar resposta:', error);
+            });
+          }
+        }
+
+        function toggleRespostas(idPer) {
+          const respostasDiv = document.getElementById(`respostas-${idPer}`);
+          const button = event.target;
+          const idUser = button.getAttribute('data-iduser');
+
+          if (respostasDiv.style.display === 'none') {
+            fetch(`/perguntas/${idPer}/respostas`)
+              .then(response => response.json())
+              .then(respostas => {
+
+                respostasDiv.innerHTML = '';
+                if (respostas.length > 0) {
+                  respostas.forEach((resposta, index) => {
+                    const deleteButton = resposta.idUsu === parseInt(idUser)
+                      ? `<button onclick="deleteResposta(${resposta.idRes})" class="btn btn-sm btn-danger ml-2">Deletar</button>`
+                      : '';
+
+                    fetch(`/resposta/${resposta.idRes}/avaliacoes`)
+                      .then(response => response.json())
+                      .then(data => {
+                        const avaliacaoButtons = idUser ? `
+                                    <div class="avaliacao-container">
+                                        <button onclick="avaliarPost('resposta', ${resposta.idRes}, 'like')" class="btn btn-sm btn-outline-success avaliacao-btn ${data.userAvaliacao === 'like' ? 'active' : ''}" data-tipo="like" data-id="${resposta.idRes}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                                <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+                                            </svg>
+                                            <span class="avaliacao-count" id="likes-resposta-${resposta.idRes}">${data.likes}</span>
+                                        </button>
+                                        <button onclick="avaliarPost('resposta', ${resposta.idRes}, 'dislike')" class="btn btn-sm btn-outline-danger avaliacao-btn ${data.userAvaliacao === 'dislike' ? 'active' : ''}" data-tipo="dislike" data-id="${resposta.idRes}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                                <path d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z"/>
+                                            </svg>
+                                            <span class="avaliacao-count" id="dislikes-resposta-${resposta.idRes}">${data.dislikes}</span>
+                                        </button>
+                                    </div>
+                                ` : `
+                                    <div class="avaliacao-container">
+                                        <button class="btn btn-sm btn-outline-success avaliacao-btn" disabled>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                                <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+                                            </svg>
+                                            <span class="avaliacao-count" id="likes-resposta-${resposta.idRes}">${data.likes}</span>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger avaliacao-btn" disabled>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+                                                <path d="M8.864 15.674c-.956.24-1.843-.484-1.908-1.42-.072-1.05-.23-2.015-.428-2.59-.125-.36-.479-1.012-1.04-1.638-.557-.624-1.282-1.179-2.131-1.41C2.685 8.432 2 7.85 2 7V3c0-.845.682-1.464 1.448-1.546 1.07-.113 1.564-.415 2.068-.723l.048-.029c.272-.166.578-.349.97-.484C6.931.08 7.395 0 8 0h3.5c.937 0 1.599.478 1.934 1.064.164.287.254.607.254.913 0 .152-.023.312-.077.464.201.262.38.577.488.9.11.33.172.762.004 1.15.069.13.12.268.159.403.077.27.113.567.113.856 0 .289-.036.586-.113.856-.035.12-.08.244-.138.363.394.571.418 1.2.234 1.733-.206.592-.682 1.1-1.2 1.272-.847.283-1.803.276-2.516.211a9.877 9.877 0 0 1-.443-.05 9.364 9.364 0 0 1-.062 4.51c-.138.508-.55.848-1.012.964l-.261.065zM11.5 1H8c-.51 0-.863.068-1.14.163-.281.097-.506.229-.776.393l-.04.025c-.555.338-1.198.73-2.49.868-.333.035-.554.29-.554.55V7c0 .255.226.543.62.65 1.095.3 1.977.997 2.614 1.709.635.71 1.064 1.475 1.238 1.977.243.7.407 1.768.482 2.85.025.362.36.595.667.518l.262-.065c.16-.04.258-.144.288-.255a8.34 8.34 0 0 0-.145-4.726.5.5 0 0 1 .595-.643h.003l.014.004.058.013a8.912 8.912 0 0 0 1.036.157c.663.06 1.457.054 2.11-.163.175-.059.45-.301.57-.651.107-.308.087-.67-.266-1.021L12.793 7l.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315l-.353-.354.353-.354c.047-.047.109-.176.005-.488a2.224 2.224 0 0 0-.505-.804l-.353-.354.353-.354c.006-.005.041-.05.041-.17a.866.866 0 0 0-.121-.415C12.4 1.272 12.063 1 11.5 1z"/>
+                                            </svg>
+                                            <span class="avaliacao-count" id="dislikes-resposta-${resposta.idRes}">${data.dislikes}</span>
+                                        </button>
+                                    </div>
+                                `;
+
+                        respostasDiv.innerHTML += `
+                                    <div class="resposta-card d-flex align-items-start mb-3">
+                                        <div class="d-flex align-items-center flex-grow-1">
+                                            <img src="/fotos/${resposta.arquivoUsuario}" alt="${resposta.nomeUsuario}" class="avatar mr-2" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                            <div>
+                                                <strong>${resposta.nomeUsuario}</strong>
+                                                <p class="mb-1">${resposta.conteudoRes}</p>
+                                                ${avaliacaoButtons}
+                                            </div>
+                                        </div>
+                                        ${deleteButton}
+                                    </div>
+                                    ${index < respostas.length - 1 ? '<hr class="resposta-divisor">' : ''}
+                                `;
+                      })
+                      .catch(error => console.error('Erro:', error));
+                  });
+                } else {
+                  respostasDiv.innerHTML = '<p>Nenhuma resposta ainda.</p>';
+                }
+                respostasDiv.style.display = 'block';
+              })
+              .catch(error => {
+                console.error('Erro ao buscar respostas:', error);
+                respostasDiv.innerHTML = '<p>Erro ao carregar respostas.</p>';
+                respostasDiv.style.display = 'block';
+              });
+          } else {
+            respostasDiv.style.display = 'none';
+          }
+        }
+
+
+        // Inicializa os contadores ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+          const perguntas = document.querySelectorAll('.cardFor');
+          perguntas.forEach(pergunta => {
+            const idPer = pergunta.querySelector('.avaliacao-btn').getAttribute('data-id');
+            fetch(`/pergunta/${idPer}/avaliacoes`)
+              .then(response => response.json())
+              .then(data => {
+                atualizarContadores('pergunta', idPer, data);
+                atualizarBotoes('pergunta', idPer, data.userAvaliacao);
+              })
+              .catch(error => console.error('Erro:', error));
+          });
+        });
+      </script>
+
+      <style>
+        .resposta-card {
+          background-color: #2f2f2f;
+          border-radius: 8px;
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+
+        .resposta-divisor {
+          margin: 15px 0;
+          border-top: 1px solid #dee2e6;
+        }
+
+        .avatar {
+          margin-right: 10px;
+        }
+      </style>
+</body>

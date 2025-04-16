@@ -1,0 +1,33 @@
+<head>
+  <title>Cadastro</title>
+  <style>
+      .error-message {
+          color: red;
+          background-color: #ffeeee;
+          border: 1px solid red;
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          display: block; /* Muda para block para garantir que apareça */
+      }
+  </style>
+</head>
+<body class="form_centro Fundo_degra">
+<%- include('menu'); %>
+<%- include('style'); %>
+
+<form method="post" class="form_estilo" enctype="multipart/form-data" style="margin-top: 10%; box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <h2>Crie Sua Conta!</h2>
+  <!-- Exibe a mensagem de erro se existir -->
+<% if (typeof error !== 'undefined') { %>
+  <div class="error-message"><%= error %></div>
+<% } %>
+  </br>
+  <input type="text" name="nome" placeholder="Nome" class="campos_form" required>
+  <input type="email" name="email" placeholder="Email" class="campos_form" required>
+  <input type="password" name="senha" placeholder="Senha" class="campos_form" required>
+  <input type="file" name="foto" accept="image/*" class="campos_form" required>
+  <input type="submit" value="Cadastrar" class="btn_cor campo_enviar"><br><br>
+  <a href="/login">Já tem uma conta? Faça login aqui!</a>
+</form>
+</body>
